@@ -49,12 +49,12 @@ public class DBHelper extends SQLiteOpenHelper
 		db.execSQL(
 				"CREATE TABLE person_group ( " +
 				"_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-				"name TEXT );");
+				"name TEXT UNIQUE);");
 		
 		db.execSQL(
 				"CREATE TABLE person_number ( " +
 				"_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-				"name TEXT, " +
+				"number TEXT, " +
 				"person_id INTEGER, " +
 				"group_id INTEGER," +
 				"FOREIGN KEY(person_id) REFERENCES person(_id),"+

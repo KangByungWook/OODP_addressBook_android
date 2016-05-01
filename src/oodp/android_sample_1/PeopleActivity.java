@@ -102,7 +102,9 @@ public class PeopleActivity extends Activity
 			 * 해당 Activity가 보내 준 정보는 이 메서드의 argument인 data에 들어 있습니다.
 			 */
 			String newName = data.getStringExtra("name");
+			String newNumber = data.getStringExtra("number");
 			String newEmail = data.getStringExtra("email");
+			String newGroup = data.getStringExtra("group");
 			
 			/*
 			 * DB에 새 tuple(한 줄)을 추가하는 코드입니다.
@@ -110,6 +112,24 @@ public class PeopleActivity extends Activity
 			 * 아마도 _id가 있을 맨 앞 부분은 항상 null을 적어 주면 됩니다. 
 			 */
 			db.execSQL("INSERT INTO person VALUES (null, '" + newName + "', '" + newEmail + "');");
+			// 그룹명이 중복되면 무시
+			db.execSQL("INSERT OR IGNORE INTO person_group VALUES (null, '" + newGroup + "');");
+//			INSERT INTO BooksAuthorsXRef
+//			SELECT      B.[rowid], P.[rowid]
+//			FROM        XRefTemp T
+//			INNER JOIN  Books B
+//			ON          B.Title = T.Title
+//			INNER JOIN  People P
+//			ON          P.FirstName = T.FirstName
+//			AND         COALESCE(P.MiddleName, '') = COALESCE(T.MiddleName, '')
+//			AND         P.LastName = T.LastName
+//			db.execSQL("INSERT INTO person_number "
+//					+ "SELECT      '" + newNumber + "'P.[rowid], G.[rowid] "
+//					+ "FROM        XRefTemp T "
+//					+ "INNER JOIN  person P "
+//					+ "ON          P.person_name = T.person_name "
+//					+ "INNER JOIN  person_group G "
+//					+ "ON          G.group_name = T.group_name; ");
 			
 			/*
 			 * 추가가 끝난 다음 바로 ListView가 갱신되지는 않습니다.

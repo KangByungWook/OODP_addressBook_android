@@ -24,14 +24,14 @@ public class NewPeopleActivity extends Activity
 		 * intent로 전달받은 문자열을 통해 EditText의 초기 문자열을 설정하는 코드입니다.
 		 */
 		EditText tb_name = (EditText)findViewById(R.id.tb_name);
-		EditText tb_email = (EditText)findViewById(R.id.tb_number);
+		EditText tb_email = (EditText)findViewById(R.id.tb_email);
 		EditText tb_group = (EditText)findViewById(R.id.tb_group);
-		
+		EditText tb_number = (EditText)findViewById(R.id.tb_number);
 		
 		tb_name.setText(intent.getStringExtra("name"));
-		tb_email.setText(intent.getStringExtra("number"));
+		tb_number.setText(intent.getStringExtra("number"));
+		tb_email.setText(intent.getStringExtra("email"));
 		tb_group.setText(intent.getStringExtra("group"));
-		
 		
 	}
 
@@ -62,7 +62,7 @@ public class NewPeopleActivity extends Activity
 		 * EditText로 입력받은 문자열을 전달하기 위해 intent에 담는 코드입니다.
 		 */
 		EditText tb_name = (EditText)findViewById(R.id.tb_name);
-		EditText tb_email = (EditText)findViewById(R.id.tb_number);
+		EditText tb_email = (EditText)findViewById(R.id.tb_email);
 		
 		intent.putExtra("name", tb_name.getText().toString());
 		intent.putExtra("email", tb_email.getText().toString());
