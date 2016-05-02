@@ -122,21 +122,6 @@ public class PeopleActivity extends Activity
 						"ON          person.name = '" + newName + "' " + 
 						"AND       	 person_group.name = '" + newGroup + "';");
 			
-//			INSERT INTO BooksAuthorsXRef
-//			SELECT      B.[rowid], P.[rowid]
-//			FROM        Books B
-//			INNER JOIN  People P
-//			ON          P.FirstName = 'TheFirstName'
-//			AND         COALESCE(P.MiddleName, '') = 'TheMiddleName or empty if none'
-//			AND         P.LastName = 'TheLastName'
-//			WHERE       B.Title = 'TheBookTitle'
-			
-//			INSERT INTO person_number
-//			SELECT      P._id, G._id
-//			FROM        person P
-//			INNER JOIN  person_group G
-//			ON          P.name = '뉴네임'
-//			WHERE       G.name = '뉴그룹'
 			
 			/*
 			 * 추가가 끝난 다음 바로 ListView가 갱신되지는 않습니다.
