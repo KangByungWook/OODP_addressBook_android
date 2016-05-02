@@ -88,7 +88,8 @@ public class PeopleActivity extends Activity
 		 */
 		Intent intent = new Intent(this, NewPeopleActivity.class);
 		intent.putExtra("name", "새 이름");
-		intent.putExtra("number", "새 이메일");
+		intent.putExtra("number", "새 번호");
+		intent.putExtra("email", "새 이메일");
 		intent.putExtra("group", "그룹명");
 		startActivityForResult(intent, 0);
 	}
@@ -114,22 +115,28 @@ public class PeopleActivity extends Activity
 			db.execSQL("INSERT INTO person VALUES (null, '" + newName + "', '" + newEmail + "');");
 			// 그룹명이 중복되면 무시
 			db.execSQL("INSERT OR IGNORE INTO person_group VALUES (null, '" + newGroup + "');");
+			db.execSQL("INSERT INTO person_number (number, person_id, group_id) " + 
+						"SELECT      '"+ newNumber +"', person._id, person_group._id " + 
+						"FROM        person " + 
+						"INNER JOIN  person_group " + 
+						"ON          person.name = '" + newName + "' " + 
+						"AND       	 person_group.name = '" + newGroup + "';");
+			
 //			INSERT INTO BooksAuthorsXRef
 //			SELECT      B.[rowid], P.[rowid]
-//			FROM        XRefTemp T
-//			INNER JOIN  Books B
-//			ON          B.Title = T.Title
+//			FROM        Books B
 //			INNER JOIN  People P
-//			ON          P.FirstName = T.FirstName
-//			AND         COALESCE(P.MiddleName, '') = COALESCE(T.MiddleName, '')
-//			AND         P.LastName = T.LastName
-//			db.execSQL("INSERT INTO person_number "
-//					+ "SELECT      '" + newNumber + "'P.[rowid], G.[rowid] "
-//					+ "FROM        XRefTemp T "
-//					+ "INNER JOIN  person P "
-//					+ "ON          P.person_name = T.person_name "
-//					+ "INNER JOIN  person_group G "
-//					+ "ON          G.group_name = T.group_name; ");
+//			ON          P.FirstName = 'TheFirstName'
+//			AND         COALESCE(P.MiddleName, '') = 'TheMiddleName or empty if none'
+//			AND         P.LastName = 'TheLastName'
+//			WHERE       B.Title = 'TheBookTitle'
+			
+//			INSERT INTO person_number
+//			SELECT      P._id, G._id
+//			FROM        person P
+//			INNER JOIN  person_group G
+//			ON          P.name = '뉴네임'
+//			WHERE       G.name = '뉴그룹'
 			
 			/*
 			 * 추가가 끝난 다음 바로 ListView가 갱신되지는 않습니다.
