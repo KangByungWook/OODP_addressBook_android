@@ -38,7 +38,7 @@
         android:text="sms" />
 
     <Button
-        android:id="@+id/bt_call"
+        android:id="@+id/bt_do_call"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/bt_sms"

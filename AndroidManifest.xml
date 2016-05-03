@@ -40,11 +40,32 @@
         </activity>
         <activity
             android:name=".SmsActivity"
-            android:label="@string/title_activity_sms" >
+            android:label="@string/title_activity_sms"
+            android:parentActivityName=".MainActivity" >
+        </activity>
+        <activity
+            android:name=".NewSmsActivity"
+            android:label="@string/title_activity_new_sms"
+            android:parentActivityName=".SmsActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="oodp.android_sample_1.SmsActivity" />
         </activity>
         <activity
             android:name=".CallActivity"
-            android:label="@string/title_activity_call" >
+            android:label="@string/title_activity_call"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="oodp.android_sample_1.MainActivity" />
+        </activity>
+        <activity
+            android:name=".NewCallActivity"
+            android:label="@string/title_activity_new_call"
+            android:parentActivityName=".CallActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="oodp.android_sample_1.CallActivity" />
         </activity>
     </application>
 

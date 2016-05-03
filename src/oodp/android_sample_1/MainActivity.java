@@ -57,9 +57,11 @@ public class MainActivity extends Activity
 	}
 	
 	public void bt_call_Click(View view){
-		Intent CallActivity = new Intent(this, CallActivity.class);
-		startActivity(CallActivity);
+		Intent callActivity = new Intent(this, CallActivity.class);
+		startActivity(callActivity);
 	}
+	
+	
 	
 	public void bt_reset_Click(View view)
 	{

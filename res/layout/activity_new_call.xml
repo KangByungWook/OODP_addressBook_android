@@ -6,24 +6,11 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="oodp.android_sample_1.SmsActivity" >
+    tools:context="oodp.android_sample_1.NewCallActivity" >
 
-    <ListView
-        android:id="@+id/lv_sms"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/bt_send_msg"
-        android:layout_centerHorizontal="true" >
-
-    </ListView>
-
-    <Button
-        android:id="@+id/bt_send_msg"
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:onClick="bt_send_msg_Click"
-        android:text="메세지 보내기" />
+        android:text="@string/hello_world" />
 
 </RelativeLayout>

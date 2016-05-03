@@ -1,24 +1,22 @@
 package oodp.android_sample_1;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
-public class CallActivity extends Activity {
+public class NewSmsActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_call);
+		setContentView(R.layout.activity_new_sms);
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.call, menu);
+		getMenuInflater().inflate(R.menu.new_sms, menu);
 		return true;
 	}
 
@@ -32,10 +30,5 @@ public class CallActivity extends Activity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
-	}
-	
-	public void bt_do_call_Click(View view){
-		Intent NewCallActivity = new Intent(this, NewCallActivity.class);
-		startActivity(NewCallActivity);
 	}
 }

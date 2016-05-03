@@ -8,5 +8,7 @@
     <string name="title_activity_new_people">NewPeopleActivity</string>
     <string name="title_activity_sms">SmsActivity</string>
     <string name="title_activity_call">CallActivity</string>
+    <string name="title_activity_new_sms">NewSmsActivity</string>
+    <string name="title_activity_new_call">NewCallActivity</string>
 
 </resources>
