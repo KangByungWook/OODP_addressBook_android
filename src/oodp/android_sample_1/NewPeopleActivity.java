@@ -63,9 +63,13 @@ public class NewPeopleActivity extends Activity
 		 */
 		EditText tb_name = (EditText)findViewById(R.id.tb_name);
 		EditText tb_email = (EditText)findViewById(R.id.tb_email);
+		EditText tb_number = (EditText)findViewById(R.id.tb_number);
+		EditText tb_group = (EditText)findViewById(R.id.tb_group);
 		
 		intent.putExtra("name", tb_name.getText().toString());
 		intent.putExtra("email", tb_email.getText().toString());
+		intent.putExtra("number", tb_number.getText().toString());
+		intent.putExtra("group", tb_group.getText().toString());
 		
 		/*
 		 * 이 Activity의 작업을 성공적으로 종료하고 이전 Activity로 돌아가기 위한 코드입니다.
