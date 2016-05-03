@@ -9,15 +9,6 @@
     tools:context="oodp.android_sample_1.MainActivity" >
 
     <Button
-        android:id="@+id/bt_people"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:onClick="bt_people_Click"
-        android:text="People" />
-
-    <Button
         android:id="@+id/bt_reset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -25,5 +16,35 @@
         android:layout_alignParentRight="true"
         android:onClick="bt_reset_Click"
         android:text="Reset" />
+
+    <Button
+        android:id="@+id/bt_people"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="62dp"
+        android:onClick="bt_people_Click"
+        android:text="People" />
+
+    <Button
+        android:id="@+id/bt_sms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bt_people"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:onClick="bt_sms_Click"
+        android:text="sms" />
+
+    <Button
+        android:id="@+id/bt_call"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/bt_sms"
+        android:layout_below="@+id/bt_sms"
+        android:layout_marginTop="41dp"
+        android:onClick="bt_call_Click"
+        android:text="call" />
 
 </RelativeLayout>

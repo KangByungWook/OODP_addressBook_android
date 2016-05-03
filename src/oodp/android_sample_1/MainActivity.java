@@ -51,6 +51,16 @@ public class MainActivity extends Activity
 		startActivity(peopleActivity);
 	}
 	
+	public void bt_sms_Click(View view){
+		Intent SmsActivity = new Intent(this, SmsActivity.class);
+		startActivity(SmsActivity);
+	}
+	
+	public void bt_call_Click(View view){
+		Intent CallActivity = new Intent(this, CallActivity.class);
+		startActivity(CallActivity);
+	}
+	
 	public void bt_reset_Click(View view)
 	{
 		/*

@@ -38,6 +38,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="PeopleActivity" />
         </activity>
+        <activity
+            android:name=".SmsActivity"
+            android:label="@string/title_activity_sms" >
+        </activity>
+        <activity
+            android:name=".CallActivity"
+            android:label="@string/title_activity_call" >
+        </activity>
     </application>
 
 </manifest>
