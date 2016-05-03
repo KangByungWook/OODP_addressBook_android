@@ -60,8 +60,24 @@ public class DBHelper extends SQLiteOpenHelper
 				"FOREIGN KEY(person_id) REFERENCES person(_id),"+
 				"FOREIGN KEY(group_id) REFERENCES person_group(_id)"+
 				" );");
-
-		
+		db.execSQL(
+				"CREATE TABLE call ( " +
+				"_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+				"start_time DATETIME, " +
+				"end_time DATETIME, " +
+				"type INTEGER," + // 0:수신  1:발신
+				"opposite_number_id INTEGER, " +
+				"FOREIGN KEY(opposite_number_id) REFERENCES person_number(_id)" +
+				" );");
+		db.execSQL(
+				"CREATE TABLE sms ( " +
+				"_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+				"message TEXT, " +
+				"time DATETIME, " +
+				"type INTEGER," + // 0:수신  1:발신
+				"opposite_number_id INTEGER, " +
+				"FOREIGN KEY(opposite_number_id) REFERENCES person_number(_id)" +
+				" );");
 	}
 
 	/**
@@ -73,12 +89,12 @@ public class DBHelper extends SQLiteOpenHelper
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion)
 	{
 		// 여기서는 '업그레이드'라 칭하고 그냥 '다 지우고 다시 만들기'를 수행하고 있습니다.
-		db.execSQL("DROP TABLE IF EXISTS people");
-		db.execSQL("DROP TABLE IF EXISTS sms");
-		db.execSQL("DROP TABLE IF EXISTS callhistory");
 		db.execSQL("DROP TABLE IF EXISTS person_number");
 		db.execSQL("DROP TABLE IF EXISTS person");
 		db.execSQL("DROP TABLE IF EXISTS person_group");
+		db.execSQL("DROP TABLE IF EXISTS sms");
+		db.execSQL("DROP TABLE IF EXISTS call");
+		
 		onCreate(db);
 	}
 
