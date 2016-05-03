@@ -54,10 +54,15 @@ public class NewCallActivity extends Activity {
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		if (resultCode == RESULT_OK) {
+			Intent intent = new Intent();
 			String number = data.getStringExtra("number");
 			String start_time = data.getStringExtra("start_time");
 			String end_time = data.getStringExtra("end_time");
+			intent.putExtra("number", number);
+			intent.putExtra("start_time", start_time);
+			intent.putExtra("end_time", end_time);
 			
+			setResult(RESULT_OK, intent);
 			finish();
 		}
 	}
