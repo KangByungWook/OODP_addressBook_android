@@ -54,7 +54,7 @@ public class DBHelper extends SQLiteOpenHelper
 		db.execSQL(
 				"CREATE TABLE person_number ( " +
 				"_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-				"number TEXT, " +
+				"number TEXT UNIQUE, " +
 				"person_id INTEGER, " +
 				"group_id INTEGER," +
 				"FOREIGN KEY(person_id) REFERENCES person(_id),"+

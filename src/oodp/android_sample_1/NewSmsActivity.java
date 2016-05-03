@@ -1,11 +1,18 @@
 package oodp.android_sample_1;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.SimpleCursorAdapter;
 
 public class NewSmsActivity extends Activity {
+	SQLiteDatabase db;
+	SimpleCursorAdapter adapter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -31,4 +38,19 @@ public class NewSmsActivity extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+	
+	// 메세지 보내기 버튼 클릭
+	public void bt_do_send_Click(View view){
+		Intent intent  = new Intent();
+		EditText tb_receiver = (EditText)findViewById(R.id.tb_receiver);
+		EditText tb_message = (EditText)findViewById(R.id.tb_message);
+		
+		intent.putExtra("receiver", tb_receiver.getText().toString());
+		intent.putExtra("message", tb_message.getText().toString());
+		
+		setResult(RESULT_OK, intent);
+		finish();
+	}
+	
+	
 }

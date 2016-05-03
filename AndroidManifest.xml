@@ -67,6 +67,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="oodp.android_sample_1.CallActivity" />
         </activity>
+        <activity
+            android:name=".CallingActivity"
+            android:label="@string/title_activity_calling" >
+        </activity>
     </application>
 
 </manifest>

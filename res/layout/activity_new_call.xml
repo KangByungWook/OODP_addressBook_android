@@ -8,9 +8,36 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="oodp.android_sample_1.NewCallActivity" >
 
-    <TextView
+    <EditText
+        android:id="@+id/tb_call_opposite_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="144dp"
+        android:ems="10" >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tb_call_opposite_number"
+        android:layout_alignLeft="@+id/tb_call_opposite_number"
+        android:layout_marginBottom="35dp"
+        android:text="상대방 번호"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <Button
+        android:id="@+id/bt_start_call"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tb_call_opposite_number"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="31dp"
+        android:onClick="bt_start_call_Click"
+        android:text="통화시작" />
 
 </RelativeLayout>

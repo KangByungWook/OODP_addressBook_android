@@ -18,12 +18,13 @@
         android:text="message" />
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/bt_do_send"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_massage"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="117dp"
+        android:onClick="bt_do_send_Click"
         android:text="메세지 전송" />
 
     <TextView
@@ -32,7 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginTop="60dp"
-        android:layout_toLeftOf="@+id/button1"
+        android:layout_toLeftOf="@+id/bt_do_send"
         android:text="number" />
 
     <EditText

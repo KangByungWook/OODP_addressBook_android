@@ -10,5 +10,6 @@
     <string name="title_activity_call">CallActivity</string>
     <string name="title_activity_new_sms">NewSmsActivity</string>
     <string name="title_activity_new_call">NewCallActivity</string>
+    <string name="title_activity_calling">CallingActivity</string>
 
 </resources>

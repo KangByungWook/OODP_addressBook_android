@@ -2,6 +2,7 @@ package oodp.android_sample_1;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -36,6 +37,8 @@ public class CallActivity extends Activity {
 	
 	public void bt_do_call_Click(View view){
 		Intent NewCallActivity = new Intent(this, NewCallActivity.class);
-		startActivity(NewCallActivity);
+		startActivityForResult(NewCallActivity, 0);
 	}
+	
+	
 }

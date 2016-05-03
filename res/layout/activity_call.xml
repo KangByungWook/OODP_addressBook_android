@@ -9,7 +9,7 @@
     tools:context="oodp.android_sample_1.CallActivity" >
 
     <ListView
-        android:id="@+id/listView1"
+        android:id="@+id/lv_call"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/bt_do_call"
@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/listView1"
+        android:layout_alignRight="@+id/lv_call"
         android:onClick="bt_do_call_Click"
         android:text="전화걸기" />
 

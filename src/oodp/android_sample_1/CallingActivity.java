@@ -9,20 +9,25 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.EditText;
+import android.widget.TextView;
 
-public class NewCallActivity extends Activity {
+public class CallingActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		Intent intent = getIntent();
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_new_call);
+		setContentView(R.layout.activity_calling);
+		TextView tb_opposite_number = (TextView)findViewById(R.id.opposite_number_info);
+		TextView tb_start_time = (TextView)findViewById(R.id.call_start_time);
+		tb_opposite_number.setText(intent.getStringExtra("call_opposite_number"));
+		tb_start_time.setText(intent.getStringExtra("start_time"));
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.new_call, menu);
+		getMenuInflater().inflate(R.menu.calling, menu);
 		return true;
 	}
 
@@ -38,27 +43,20 @@ public class NewCallActivity extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 	
-	public void bt_start_call_Click(View view){
-		Intent intent = new Intent(this, CallingActivity.class);
+	public void bt_call_end_Click(View view){
+		Intent intent = new Intent();
+		TextView tv_start_time = (TextView)findViewById(R.id.call_start_time);
+		TextView tv_opposite_number = (TextView)findViewById(R.id.opposite_number_info);
 		long time = System.currentTimeMillis(); 
+		
 		SimpleDateFormat dayTime = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-		String call_start_time = dayTime.format(new Date(time));
+		String call_end_time = dayTime.format(new Date(time));
 		
-		EditText tb_number = (EditText)findViewById(R.id.tb_call_opposite_number);
-		intent.putExtra("call_opposite_number", tb_number.getText().toString());
-		intent.putExtra("start_time", call_start_time);
+		intent.putExtra("start_time", tv_start_time.getText().toString());
+		intent.putExtra("end_time", call_end_time);
+		intent.putExtra("number", tv_opposite_number.getText().toString());
 		
-		startActivityForResult(intent, 0);
-	}
-	
-	@Override
-	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		if (resultCode == RESULT_OK) {
-			String number = data.getStringExtra("number");
-			String start_time = data.getStringExtra("start_time");
-			String end_time = data.getStringExtra("end_time");
-			
-			finish();
-		}
+		setResult(RESULT_OK, intent);
+		finish();
 	}
 }
